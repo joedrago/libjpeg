@@ -1,6 +1,12 @@
 # Copyright 2019 Joe Drago. All rights reserved.
 # SPDX-License-Identifier: BSD-2-Clause
 
+if(CMAKE_C_COMPILER_ID MATCHES "MSVC")
+  add_definitions(
+    /wd4996 # Disable: potentially unsafe stdlib methods
+  )
+endif()
+
 add_library(jpeg
     jaricom.c
     jcapimin.c
